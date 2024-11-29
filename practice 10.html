@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MI Complaint Registration Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        #chat-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #chat-box {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            height: 80vh;
+        }
+
+        .bot-message {
+            background-color: #0084FF;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            margin: 5px 0;
+            max-width: 80%;
+        }
+
+        .user-message {
+            background-color: #f1f0f0;
+            color: black;
+            padding: 8px 15px;
+            border-radius: 10px;
+            margin: 5px 0;
+            align-self: flex-end;
+            max-width: 80%;
+        }
+
+        #input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+
+        #user-input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        #send-button {
+            padding: 10px 15px;
+            background-color: #0084FF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        #send-button:hover {
+            background-color: #006bb3;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div id="input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 0;
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("send-button");
+
+        let formData = {
+            name: "",
+            phone: "",
+            email: "",
+            problem: ""
+        };
+
+        const botResponses = [
+            "Hello! Welcome to the MI Support Chatbot. How can I assist you?",
+            "Please provide your full name.",
+            "Thanks! Could you please share your phone number so we can reach out to you if needed?",
+            "Got it! Now, please provide your email address for further communication.",
+            "Thanks for the details. Can you describe the issue you're facing with the MI product? Please be as specific as possible.",
+            "Your complaint has been successfully registered. We will contact you shortly. Thank you for reaching out to MI Support!",
+            "Is everything correct?"
+        ];
+
+        // Function to add a message to the chat
+        function addMessage(content, sender) {
+            const message = document.createElement("div");
+            message.classList.add(sender + "-message");
+            message.textContent = content;
+            chatBox.appendChild(message);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        // Function to start the chatbot interaction
+        function startChat() {
+            addMessage(botResponses[0], "bot");
+            currentStep++;
+        }
+
+        // Function to handle user input
+        function handleUserInput() {
+            const input = userInput.value.trim();
+            if (!input) return;
+
+            addMessage(input, "user");
+            userInput.value = "";
+
+            switch (currentStep) {
+                case 1:
+                    formData.name = input;
+                    addMessage(botResponses[2], "bot");
+                    break;
+                case 2:
+                    formData.phone = input;
+                    addMessage(botResponses[3], "bot");
+                    break;
+                case 3:
+                    formData.email = input;
+                    addMessage(botResponses[4], "bot");
+                    break;
+                case 4:
+                    formData.problem = input;
+                    addMessage(botResponses[5], "bot");
+                    break;
+                case 5:
+                    addMessage(`Name: ${formData.name}
+                                Phone: ${formData.phone}
+                                Email: ${formData.email}
+                                Problem: ${formData.problem}`, "bot");
+                    addMessage("Is everything correct?", "bot");
+                    break;
+                case 6:
+                    addMessage("Thank you! Your complaint has been successfully registered.", "bot");
+                    break;
+            }
+            currentStep++;
+        }
+
+        // Send button click event listener
+        sendButton.addEventListener("click", function () {
+            handleUserInput();
+        });
+
+        // Enter key press event listener
+        userInput.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                handleUserInput();
+            }
+        });
+
+        // Start the chatbot conversation when the page loads
+        window.onload = startChat;
+    </script>
+</body>
+</html>
