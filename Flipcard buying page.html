@@ -17,8 +17,39 @@
             margin: 0;
             padding: 10px;
         }
+        .search-container{
+            display: flex;
+            align-items: center;
+            border: 2px solid #000000;
+            border-radius: 5px;
+            margin: 10px 10px;
+            padding: 5px 10px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        #searchBar{
+            width: 250px;
+            padding: 10px;
+            border: solid black;
+            border-radius: 10%;
+            outline: none;
+            font-size: 16px;
+        }
+        #searchButton{
+            padding: 10px 15px;
+            margin-left: 5px;
+            background-color: #007BFF;
+            color: white;
+            border: black;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+        #searchButton:hover {
+            background-color: #0056b3;
+        }
         .logo-container{
-            position: absolute;
+            position: fixed;
             top: 10px;
             left: 10px;
             max-width: 100px;
@@ -29,13 +60,50 @@
             max-width: 70%;
             height: 30%;
         }
-
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        .sidebar-container{
+            position: absolute;
+            top: 70px;
+            left: 10px;
+        } 
+        ul{
+            position: fixed;
+            list-style-type: none;
+            margin: 10px 0px 10px 10px;
+            padding: 10px;
+            width: 85px;
+            background: #f1f1f1;
+            border: 2px solid #555;
+        }
+        li a{
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+        }
+        li {
+            text-align: center;
+            border: 2px solid #555;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+        li a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        li a:hover:not(.active){
+            background-color: #555;
+            color: white;
+        }
         .flipcard-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 50px;
             max-width: 1000px;
             width: 80%;
+            transition: transform 0.3s ease
         }
 
         .flipcard {
@@ -129,6 +197,20 @@
     </style>
 </head>
 <body>
+    <div class="sidebar-container">
+    <nav>
+        <ul>
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+    </div>
+    <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchBar">
+        <button type="button" id="searchButton">Search</button>
+    </div>
     <div class="logo-container">
         <img src="c:\Users\vaibhav.aggarwal\Downloads\Capture.PNG" alt="logo" class="logo">
     </div>
