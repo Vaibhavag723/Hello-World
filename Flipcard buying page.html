@@ -6,15 +6,28 @@
     <title>Flipcard Shope</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            background-image: url("https://images.pexels.com/photos/218434/pexels-photo-218434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            min-height: 100vh;
+            min-height: 50vh;
             margin: 0;
             padding: 10px;
+        }
+        .logo-container{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            max-width: 100px;
+            margin: auto;
+            padding: 10px 10px;
+        }
+        .logo{
+            max-width: 70%;
+            height: 30%;
         }
 
         .flipcard-container {
@@ -22,16 +35,17 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 50px;
             max-width: 1000px;
-            width: 100%;
+            width: 80%;
         }
 
         .flipcard {
+            background-image: url("https://images.pexels.com/photos/1939485/pexels-photo-1939485.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
             width: 100%;
             height: 400px;
             background-color: #fff;
             border: solid #7b7777;
             border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -39,21 +53,35 @@
             justify-content: space-around;
             padding: 20px;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flipcard:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
 
         .flipcard img {
-            width: 45%;
-            height: auto;
+            width: 60%;
+            height: 40%;
             border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .flipcard:hover img {
+            transform: scale(1.1);
         }
 
         .flipcard h3 {
             margin-top: 15px;
             font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
         }
 
         .flipcard p {
             font-size: 1em;
+            margin: 0px 0px 0px 0px;
             color: #555;
         }
 
@@ -65,24 +93,45 @@
 
         .flipcard button {
             background-color: #2ecc71;
-            border: solid #000000;
+            border: none;
             color: white;
-            padding: 10px 20px 10px 20px;
+            padding: 12px 25px;
             cursor: pointer;
             border-radius: 10px;
-            font-size: 1em;
+            font-size: 1.1em;
             margin-top: 15px;
-            transition: background-color 0.3s;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-        .flipcard button{width: 250px}
 
         .flipcard button:hover {
-            background-color: #4ddb88;
+            background-color: #27ae60;
+            transform: translateY(-3px);
+        }
+
+        .flipcard button:active {
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 600px) {
+            .flipcard-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .flipcard {
+                height: auto;
+            }
+            .flipcard img {
+                width: 90%;
+            }
         }
 
     </style>
 </head>
 <body>
+    <div class="logo-container">
+        <img src="c:\Users\vaibhav.aggarwal\Downloads\Capture.PNG" alt="logo" class="logo">
+    </div>
     <div class="flipcard-container">
 
         <div class="flipcard">
@@ -121,7 +170,7 @@
             <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (4).jpg" alt="item5">
             <h3>Waterbottle</h3>
             <p>Transparent with temperature mantained feature</p>
-            <div class="price">rs.450</div>
+            <div class="price">Rs.450</div>
             <button>Add to Cart</button>
             <button>Buy</button>
         </div>

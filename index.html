@@ -1,41 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipcard Shope</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 50vh;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .flipcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 50px;
+            max-width: 1000px;
+            width: 80%;
+        }
+
+        .flipcard {
+            width: 100%;
+            height: 400px;
+            background-color: #fff;
+            border: solid #7b7777;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flipcard:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .flipcard img {
+            width: 60%;
+            height: 40%;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .flipcard:hover img {
+            transform: scale(1.1);
+        }
+
+        .flipcard h3 {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .flipcard p {
+            font-size: 1em;
+            margin: 0px 0px 0px 0px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .flipcard button {
+            background-color: #2ecc71;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 1.1em;
+            margin-top: 15px;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .flipcard button:hover {
+            background-color: #27ae60;
+            transform: translateY(-3px);
+        }
+
+        .flipcard button:active {
+            transform: translateY(1px);
+        }
+
+        @media (max-width: 600px) {
+            .flipcard-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .flipcard {
+                height: auto;
+            }
+            .flipcard img {
+                width: 90%;
+            }
+        }
+
+    </style>
+</head>
 <body>
-      <center>
-    <h1 style="background-color:rgb(25, 248, 96);">Employee database created in the background checkup</h1>
-<p style="background-color:tomato;">All the hardworking employee are manage the company on there basic gidance of the manager Pragraph of the company empoyeement data.</p>
-<h2>Employee Information table</h2>
-      </center>
-<table style="width:100%">
-  <tr>
-    <th style="background-color:rgb(71, 255, 126);">Name</th>
-    <th style="background-color:blueviolet;">Contact number</th>
-    <th style="background-color:rgb(215, 255, 71);">Company</th>
-    <th style="background-color:rgb(92, 71, 255);">Position</th>
-    <th style="background-color:rgb(186, 104, 90);">Country</th>
-  </tr>
-  <tr>
-    <td>Vaibhav</td>
-    <td>9315710652</td>
-    <td>Botgo technologies Pvt. Ltd.</td>
-    <td>AI developer Intern</td>
-    <td>New delhi</td>
-  </tr>
-  <tr>
-    <td>Shivam</td>
-    <td>9650792535</td>
-    <td>Botgo technologies Pvt. Ltd.</td>
-    <td>AI developer</td>
-    <td>Noida</td>
-  </tr>
-</table>
+    <div class="flipcard-container">
 
-<p style="background-color:rgb(83, 25, 220);">Example of the table in html and bold lineing.</p>
-
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art.jpg" alt="item1">
+            <h3>Iphone</h3>
+            <p>Latest Iphone under discount</p>
+            <div class="price">Rs.90000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (1).jpg" alt="item2">
+            <h3>Music pots</h3>
+            <p>1000 plus songs under discount</p>
+            <div class="price">Rs.500</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (2).jpg" alt="item3">
+            <h3>Laptop</h3>
+            <p>Convertable laptop with flip</p>
+            <div class="price">Rs.40000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (3).jpg" alt="item4">
+            <h3>Backpack</h3>
+            <p>Strong and Durable Backpack</p>
+            <div class="price">Rs.1300</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (4).jpg" alt="item5">
+            <h3>Waterbottle</h3>
+            <p>Transparent with temperature mantained feature</p>
+            <div class="price">rs.450</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (5).jpg" alt="item6">
+            <h3>Watch</h3>
+            <p>New style and track devic of phone</p>
+            <div class="price">Rs.20000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (6).jpg" alt="item7">
+            <h3>Power Bank</h3>
+            <p>15000 mah power suply</p>
+            <div class="price">Rs.1500</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (7).jpg" alt="item8">
+            <h3>Pendrive</h3>
+            <p>Double sided funcationality with security code</p>
+            <div class="price">Rs.1500</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (8).jpg" alt="item9">
+            <h3>Computer Dask</h3>
+            <p>Light waight and changable wards</p>
+            <div class="price">Rs.1800</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (9).jpg" alt="item10">
+            <h3>Neck pillow</h3>
+            <p>Comphy and easy to carry</p>
+            <div class="price">Rs.250</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (10).jpg" alt="item11">
+            <h3>Headphones</h3>
+            <p>Strong and more durable</p>
+            <div class="price">Rs.900</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (11).jpg" alt="item12">
+            <h3>Iports</h3>
+            <p>New technology with call conectivity</p>
+            <div class="price">Rs.1800</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (12).jpg" alt="item13">
+            <h3>Television</h3>
+            <p>voice conectivity</p>
+            <div class="price">Rs.50000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (13).jpg" alt="item14">
+            <h3>DVD player</h3>
+            <p>New genration conectivity and more Data storage</p>
+            <div class="price">Rs.20000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (14).jpg" alt="item15">
+            <h3>Trimmer</h3>
+            <p>Cleane and smoth cleaning</p>
+            <div class="price">Rs.1800</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (15).jpg" alt="item16">
+            <h3>Toothbrush</h3>
+            <p>Electronic teeth cleaner</p>
+            <div class="price">Rs.800</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (16).jpg" alt="item17">
+            <h3>Mirror</h3>
+            <p>Easy cleanable Mirror</p>
+            <div class="price">Rs.1000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (17).jpg" alt="item18">
+            <h3>Boots</h3>
+            <p>Tough and durable</p>
+            <div class="price">Rs.1200</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (18).jpg" alt="item19">
+            <h3>Jecket</h3>
+            <p>Leather Jecket with more durablity</p>
+            <div class="price">Rs.1500</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (19).jpg" alt="item20">
+            <h3>Bed</h3>
+            <p>Bed with extra storage and comfy</p>
+            <div class="price">Rs.2500</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (20).jpg" alt="item21">
+            <h3>Gaming Chair</h3>
+            <p>Convertable and comfy</p>
+            <div class="price">Rs.1200</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (21).jpg" alt="item22">
+            <h3>Mouse and keyboard</h3>
+            <p>New Gen devices</p>
+            <div class="price">Rs.1300</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (22).jpg" alt="item23">
+            <h3>Microwave</h3>
+            <p>New gen with extra features</p>
+            <div class="price">Rs.30000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (23).jpg" alt="item24">
+            <h3>Air conditioner</h3>
+            <p>Movable features</p>
+            <div class="price">Rs.30000</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+        <div class="flipcard">
+            <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (24).jpg" alt="item25">
+            <h3>Lughter</h3>
+            <p>With extra supply </p>
+            <div class="price">Rs.20</div>
+            <button>Add to Cart</button>
+            <button>Buy</button>
+        </div>
+    </div>
 </body>
 </html>
