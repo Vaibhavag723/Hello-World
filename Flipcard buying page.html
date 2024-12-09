@@ -90,15 +90,24 @@
             border-bottom: none;
         }
         li a.active {
-            background-color: #04AA6D;
+            background-color: gray;
             color: white;
         }
         li a:hover:not(.active){
             background-color: #555;
             color: white;
         }
+        fieldset{
+            border: 2px solid #4CAF50;
+            margin: 15px 40px 20px 125px;
+            padding: auto;
+            text-align: left;
+            border-radius: 10px; 
+            background-image: url("https://images.pexels.com/photos/3255761/pexels-photo-3255761.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); 
+        }
         .flipcard-container {
             display: grid;
+            margin: 400px 10px 10px 20px;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 50px;
             max-width: 1000px;
@@ -206,6 +215,29 @@
             <li><a href="#Contact">Contact</a></li>
         </ul>
     </nav>
+    <fieldset>
+        <section id="Home">
+            <h2>Home</h2>
+            <h3>Welcome to A–shope - Your One-Stop Shop for Quality & Style</h3>
+            <p>At A–shope, we believe shopping should be an experience that brings
+               you joy and satisfaction. Whether you're searching for the latest fashion 
+               trends, unique home décor, or high-quality gadgets, we have everything you 
+               need – all in one place</p>
+        </section>
+    </fieldset>
+    <fieldset>
+        <section id="About">
+            <h2>About Us</h2>
+            <p>Welcome to A-store – your ultimate destination for [insert product type or niche]. 
+                Our mission is simple: to provide you with high-quality, thoughtfully selected
+                products that make your life easier, more enjoyable, and stylish.
+
+                At A-store, we believe in curating collections that reflect our passion for 
+                [insert niche or product category, e.g., fashion, home decor, gadgets, etc.]. 
+                Whether you’re looking for [specific products or categories you specialize in], 
+                we aim to offer only the best for our valued customers.</p>
+        </section>
+    </fieldset>
     </div>
     <div class="search-container">
         <input type="text" placeholder="Search..." id="searchBar">
@@ -416,6 +448,58 @@
             <button>Add to Cart</button>
             <button>Buy</button>
         </div>
-    </div>
+    </div> 
+    <fieldset>
+        <section id="Services">
+            <h2>Our Services</h2>
+            <p>At A-store, we are committed to providing you with an exceptional shopping experience, 
+               offering a wide range of high-quality products designed to meet your needs. Here's how
+               we make shopping with us even easier and more enjoyable</p>
+            <h4>Wide Product Selection</h4>
+            <p>We offer a carefully curated selection of premium products across various categories. 
+               Whether you’re looking for the latest trends, everyday essentials, or exclusive items, 
+               our diverse inventory is sure to have something for everyone.</p>
+            <h4>Fast & Reliable Shipping</h4>
+            <p>We know how important it is to get your products quickly. That's why we offer fast, reliable, 
+               and affordable shipping options. Your order will be processed and dispatched as soon as
+               possible to ensure that your products arrive on time and in perfect condition.</p>
+            <h4>Easy Returns & Exchanges</h4>
+            <p>We want you to be completely satisfied with your purchase. If for any reason you're not 
+               happy with an item, we offer a hassle-free return and exchange policy. Simply contact our
+               customer service team, and we will assist you every step of the way.</p>
+            <h4>Customer Support</h4>
+            <p>Our dedicated customer service team is here to help! Whether you have a question about a product, 
+               need help with an order, or just want some advice, we are available via phone, email, or live chat.
+               We strive to respond quickly and resolve your inquiries to ensure you have the best experience.</p>
+            <h4>Secure Online Shopping</h4>
+            <p>Your security is our priority. Our website is equipped with the latest encryption technology to
+               ensure that your personal and payment information remains protected throughout your shopping experience.</p>
+        </section>
+    </fieldset>
+    <fieldset>
+        <section id="Contact">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Whether you have a question about our products, need help with an order,
+            or simply want to share your feedback, our team is here to assist you. Below are the ways you can reach
+            out to us</p>
+            <h4>Store Location</h4>
+            <p><Address> A, 75, Block C, Sector 4, Noida, Uttar Pradesh 201301</Address></p>
+            <h4>Business Hours</h4>
+            <p>Monday to Friday: 9:00 AM – 6:00 PM
+               Saturday: 10:00 AM – 4:00 PM
+               Sunday: Closed
+            </p>
+            <h4>Phone</h4>
+            <p>For immediate assistance, give us a call at:
+                <phone>+911114785518</phone>
+                Our customer support team is available during business hours.
+            </p>
+            <h4>Email</h4>
+            <p>Have a question? Drop us an email at:
+            <email>CutomersupportAstore@gmail.com</email>
+            We aim to respond to all inquiries within 24 hours.
+            </p>
+        </section>
+    </fieldset>
 </body>
 </html>
