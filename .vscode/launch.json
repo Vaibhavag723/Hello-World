@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}"
+      ],
+      "name": "Launch Extension",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "preLaunchTask": "npm",
+      "request": "launch",
+      "type": "extensionHost"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Node.js Backend",
+      "program": "${workspaceFolder}/server.js", // Adjust to your backend file
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Launch Chrome Frontend",
+      "url": "http://localhost:3000", // Adjust based on your frontend URL
+      "webRoot": "${workspaceFolder}/frontend", // Adjust if your frontend is in a subfolder
+      "sourceMaps": true
+    }
+  ]
+}

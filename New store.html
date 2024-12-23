@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url('https://www.example.com/wooden-frame.jpg'); /* Replace with actual image link */
+    background-size: cover;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+header .logo h1 {
+    font-size: 2rem;
+    color: #007BFF;
+    transition: color 0.3s ease;
+}
+
+header .logo h1:hover {
+    color: #0056b3;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border 0.3s ease;
+}
+
+.search-container input:focus {
+    border-color: #007BFF;
+}
+
+.search-container button {
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.search-container button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.product-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.product-container:hover {
+    transform: scale(1.05);
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.product-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.product-card button {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-card button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+footer:hover {
+    background-color: #333;
+}
+
+footer p {
+    transition: transform 0.3s ease;
+}
+
+footer p:hover {
+    transform: translateY(-5px);
+}
+
+</style>
+<script>
+    let cart = [];
+
+function addToCart(product, price) {
+    const productObj = { product, price };
+    cart.push(productObj);
+    alert(`${product} has been added to your cart!`);
+    console.log(cart);
+}
+
+function buyNow(product, price) {
+    const productObj = { product, price };
+    cart.push(productObj);
+    alert(`You are about to purchase ${product}!`);
+    console.log(cart);
+
+    window.location.href = 'checkout.html'; 
+}
+
+function searchProduct() {
+    const searchQuery = document.getElementById('search').value.toLowerCase();
+    const products = document.querySelectorAll('.product-card');
+    products.forEach(product => {
+        const productName = product.querySelector('h3').innerText.toLowerCase();
+        if (productName.includes(searchQuery)) {
+            product.style.display = 'block';
+        } else {
+            product.style.display = 'none';
+        }
+    });
+}
+
+</script>
+<body>
+    <header>
+        <div class="logo">
+            <h1>My Store</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search products...">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-container">
+            <div class="product-card">
+                <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art.jpg" alt="Phone">
+                <h3>Phone</h3>
+                <p>Rs.30000</p>
+                <button onclick="addToCart('Product 1', 30000)">Add to Cart</button>
+                <button onclick="buyNow('Product 1', 30000)">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (1).jpg" alt="Music box">
+                <h3>Music box</h3>
+                <p>Rs.700</p>
+                <button onclick="addToCart('Product 2', 700)">Add to Cart</button>
+                <button onclick="buyNow('Product 2', 700)">Buy Now</button>
+            </div>
+
+            <div class="product-card">
+                <img src="c:\Users\vaibhav.aggarwal\Downloads\magicstudio-art (2).jpg" alt="Leptop">
+                <h3>Leptop</h3>
+                <p>Rs.40000</p>
+                <button onclick="addToCart('Product 3', 40000)">Add to Cart</button>
+                <button onclick="buyNow('Product 3', 40000)">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="" alt="Phone">
+                <h3></h3>
+                <p></p>
+                <button onclick="addToCart('Product 1', )">Add to Cart</button>
+                <button onclick="buyNow('Product 1', )">Buy Now</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Store. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
